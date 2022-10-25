@@ -43,7 +43,7 @@ export const NavItem: React.FunctionComponent<IProps> = ({ title, projectDataUrl
             <>
               <NavItemSearch handleSearch={handleSearch} searchString={searchString} />
               {filteredProjectData.map((project) => {
-                return <Project {...project} searchString={searchString} activeId={activeId} />;
+                return <Project {...project} searchString={searchString} activeId={activeId} key={project.id} />;
               })}
             </>
           )}
