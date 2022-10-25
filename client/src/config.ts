@@ -1,1 +1,4 @@
-export const navigationItems = [{ title: "Go to projects", url: "http://localhost:8000/projects" }];
+export const navigationItems = [
+  { title: "Go to projects", url: "http://localhost:8000/projects" },
+  { title: "products", url: "http://localhost:8000/products" },
+];

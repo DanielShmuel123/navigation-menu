@@ -13,6 +13,7 @@ interface IProps {
 
 export const NavItem: React.FunctionComponent<IProps> = ({ title, projectDataUrl }) => {
   const [projectData, isLoading] = useFetchData(projectDataUrl);
+  const hasItems = !!projectData;
   const [showDropdown, setShowDropdown] = useState(false);
   const [searchString, setSearchString] = useState("");
   const filteredProjectData = getfilteredProjectData(projectData ?? [], searchString);
@@ -38,13 +39,18 @@ export const NavItem: React.FunctionComponent<IProps> = ({ title, projectDataUrl
       <h1>{title}</h1>
       {showDropdown && (
         <div className="project-container">
-          {isLoading && <h1>Loading...</h1>}
+          {isLoading && <p>Loading...</p>}
           {!isLoading && (
             <>
-              <NavItemSearch handleSearch={handleSearch} searchString={searchString} />
-              {filteredProjectData.map((project) => {
-                return <Project {...project} searchString={searchString} activeId={activeId} key={project.id} />;
-              })}
+              {hasItems && (
+                <>
+                  <NavItemSearch handleSearch={handleSearch} searchString={searchString} />
+                  {filteredProjectData.map((project) => {
+                    return <Project {...project} searchString={searchString} activeId={activeId} key={project.id} />;
+                  })}
+                </>
+              )}
+              {!hasItems && <p>No items found</p>}
             </>
           )}
         </div>

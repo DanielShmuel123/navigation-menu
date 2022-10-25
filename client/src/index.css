@@ -6,7 +6,7 @@
 .header {
   height: 50px;
   display: flex;
-  padding-left: 15px;
+  padding-left: 17px;
   background-color: rgb(56, 116, 161);
 }
 .project-group-container {
@@ -21,6 +21,10 @@
   flex-direction: row;
   border-bottom: 1px solid lightgray;
   border-top: 1px solid lightgray;
+}
+p {
+  font-size: 14px;
+  padding: 10px;
 }
 
 .project-container div:nth-child(even) {
@@ -101,6 +105,7 @@
   text-align: left;
   outline: none;
   min-width: 100px;
+  font-size: 14px;
 }
 
 .active-project-display-name {
@@ -109,4 +114,9 @@
 
 .project-image {
   margin: 5px 15px 0px 15px;
+}
+
+p {
+  font-size: 14px;
+  padding: 10px;
 }
