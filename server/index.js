@@ -12,7 +12,7 @@ app.use(
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   })
 );
-const port = process.env.PORT;
+const port = process.env.PORT || 8000;
 
 app.get("/projects", (req, res) => {
   res.json(projectData);
