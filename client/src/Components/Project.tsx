@@ -16,7 +16,7 @@ export const Project: React.FunctionComponent<IProps> = ({ groups, name, image: 
         {groups.map((group, index) => {
           return <DisplayName name={group.name} searchString={searchString} id={group.id} url={group.url} activeId={activeId} key={index} />;
         })}
-        <span>+ Add Group</span>
+        <p className="add-group-text">+ Add Group</p>
       </div>
     </div>
   );
