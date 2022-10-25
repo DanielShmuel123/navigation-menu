@@ -32,11 +32,12 @@ export const getfilteredProjectData = (projectData: IProject[], searchStr: strin
 };
 
 export const findIndexesToHighlightInWord = (word: string, searchStr: string): { startHighlightingFrom: number; stopHighlightingFrom: number } => {
-  const startHighlightingFrom = formatTermForSearching(word).indexOf(formatTermForSearching(searchStr));
-  if (formatTermForSearching(searchStr) === "" || startHighlightingFrom === -1) {
+  const fomattedSearchStr = formatTermForSearching(searchStr);
+  const startHighlightingFrom = formatTermForSearching(word).indexOf(fomattedSearchStr);
+  if (fomattedSearchStr === "" || startHighlightingFrom === -1) {
     return { startHighlightingFrom: -1, stopHighlightingFrom: -1 };
   }
-  const stopHighlightingFrom = startHighlightingFrom + searchStr.length - 1;
+  const stopHighlightingFrom = startHighlightingFrom + fomattedSearchStr.length - 1;
   return { startHighlightingFrom, stopHighlightingFrom };
 };
 
