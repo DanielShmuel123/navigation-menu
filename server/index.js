@@ -12,7 +12,7 @@ app.use(
     optionsSuccessStatus: 200,
   })
 );
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8001;
 
 app.get("/projects", (req, res) => {
   res.json(projectData);
